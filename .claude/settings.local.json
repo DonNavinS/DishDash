@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(claude mcp add:*)",
+      "Bash(claude mcp:*)",
+      "mcp__shortcut__users-get-current",
+      "mcp__shortcut__teams-list",
+      "mcp__shortcut__epics-create",
+      "mcp__shortcut__stories-create",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
