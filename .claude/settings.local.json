@@ -40,7 +40,11 @@
       "Bash(pnpm add:*)",
       "Bash(pnpm prettier:*)",
       "Bash(pnpm format:check:*)",
-      "Bash(del nul 2)"
+      "Bash(del nul 2)",
+      "Bash(cat:*)",
+      "Bash(pnpm format:*)",
+      "Bash(pnpm dlx:*)",
+      "Bash(pnpm tsc:*)"
     ],
     "deny": [],
     "ask": []
