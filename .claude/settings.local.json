@@ -31,7 +31,16 @@
       "Bash(types.gitkeep:*)",
       "Bash(\"app\\(auth)\\.gitkeep\")",
       "Bash(appapi.gitkeep)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(tree:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(nul)",
+      "Bash(findstr:*)",
+      "Bash(test:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm prettier:*)",
+      "Bash(pnpm format:check:*)",
+      "Bash(del nul 2)"
     ],
     "deny": [],
     "ask": []
