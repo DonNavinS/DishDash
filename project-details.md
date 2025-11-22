@@ -1,8 +1,4 @@
 
-Navin Seneviratna <seneviratnanavin@gmail.com>
-8:57 AM (16 hours ago)
-to me
-
 🍽️ DishDash – Project Brief (Updated)
 A mobile-first PWA for tracking, planning, and sharing restaurant adventures.
 Overview
