@@ -52,6 +52,52 @@ pnpm dev
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Database Setup
+
+### Vercel Postgres
+
+This project uses Vercel Postgres with Drizzle ORM.
+
+**Initial Setup:**
+
+1. Create Vercel Postgres database in Vercel Dashboard
+2. Copy environment variables to `.env.local`
+3. Generate and apply migrations:
+   ```bash
+   pnpm db:generate
+   pnpm db:push
+   ```
+4. Seed the database:
+   ```bash
+   pnpm db:seed
+   ```
+
+**Database Scripts:**
+
+- `pnpm db:generate` - Generate migrations from schema changes
+- `pnpm db:push` - Apply migrations to database
+- `pnpm db:migrate` - Run migrations (alternative to push)
+- `pnpm db:studio` - Open Drizzle Studio (database GUI)
+- `pnpm db:seed` - Seed database with initial data
+
+**Seed Modes:**
+
+- `SEED_MODE=minimal` - Admin user only (default)
+- `SEED_MODE=full` - Admin + test data (restaurants, friends, visits)
+
+### Database Schema
+
+The database includes 7 tables:
+- **users** - Authenticated users (admin and regular)
+- **restaurants** - Restaurant directory
+- **friends** - Dining companions
+- **visits** - Logged restaurant visits
+- **visit_companions** - Junction table for visit + friends
+- **todo_eat_list** - Per-user restaurant wishlist
+- **invites** - QR-based invite codes
+
+See `docs/plans/2025-11-23-postgres-database-design.md` for full schema documentation.
+
 ## Available Scripts
 
 - `pnpm dev` - Start development server
