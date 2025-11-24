@@ -1,5 +1,9 @@
+import { config } from 'dotenv';
 import { db, schema } from './index';
 import { eq } from 'drizzle-orm';
+
+// Load environment variables from .env.local
+config({ path: '.env.local' });
 
 async function seed() {
   const seedMode = process.env.SEED_MODE || 'minimal';
@@ -15,26 +19,28 @@ async function seed() {
     .where(eq(schema.users.email, adminEmail))
     .limit(1);
 
+  let adminUser;
   if (existingAdmin.length > 0) {
-    console.log('⏭️  Admin user already exists, skipping seed');
-    return;
+    console.log('⏭️  Admin user already exists, using existing user');
+    adminUser = existingAdmin[0];
+  } else {
+    // Create admin user
+    const [newAdminUser] = await db
+      .insert(schema.users)
+      .values({
+        email: adminEmail,
+        name: adminName,
+        role: 'admin',
+      })
+      .returning();
+
+    if (!newAdminUser) {
+      throw new Error('Failed to create admin user');
+    }
+
+    adminUser = newAdminUser;
+    console.log(`✅ Created admin user: ${adminUser.email}`);
   }
-
-  // Create admin user
-  const [adminUser] = await db
-    .insert(schema.users)
-    .values({
-      email: adminEmail,
-      name: adminName,
-      role: 'admin',
-    })
-    .returning();
-
-  if (!adminUser) {
-    throw new Error('Failed to create admin user');
-  }
-
-  console.log(`✅ Created admin user: ${adminUser.email}`);
 
   if (seedMode === 'full') {
     console.log('🌾 Seeding full test data...');
