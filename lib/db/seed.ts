@@ -19,10 +19,10 @@ async function seed() {
     .where(eq(schema.users.email, adminEmail))
     .limit(1);
 
-  let adminUser;
+  let adminUser: typeof schema.users.$inferSelect;
   if (existingAdmin.length > 0) {
     console.log('⏭️  Admin user already exists, using existing user');
-    adminUser = existingAdmin[0];
+    adminUser = existingAdmin[0]!;
   } else {
     // Create admin user
     const [newAdminUser] = await db
