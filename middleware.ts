@@ -2,7 +2,7 @@ import { auth } from '@/auth';
 
 export default auth((req) => {
   const isLoggedIn = !!req.auth;
-  const { pathname } = req.nextUrl;
+  const { pathname, search } = req.nextUrl;
 
   // Public routes
   const isPublicRoute =
@@ -12,7 +12,7 @@ export default auth((req) => {
 
   // If accessing protected route without auth, redirect to sign-in
   if (!isPublicRoute && !isLoggedIn) {
-    const callbackUrl = encodeURIComponent(pathname);
+    const callbackUrl = encodeURIComponent(pathname + search);
     return Response.redirect(
       new URL(`/sign-in?callbackUrl=${callbackUrl}`, req.url)
     );

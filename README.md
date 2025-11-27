@@ -98,6 +98,54 @@ The database includes 7 tables:
 
 See `docs/plans/2025-11-23-postgres-database-design.md` for full schema documentation.
 
+## Authentication Setup
+
+### NextAuth v5 with Magic Link
+
+This project uses NextAuth v5 for passwordless authentication via email magic links.
+
+**Initial Setup:**
+
+1. Create Resend account at https://resend.com
+2. Get API key from Resend dashboard
+3. Add environment variables to `.env.local`:
+   ```bash
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_SECRET=<generate-with-openssl-rand-base64-32>
+   RESEND_API_KEY=<your-resend-api-key>
+   RESEND_FROM_EMAIL=onboarding@resend.dev
+   ADMIN_EMAIL=<your-email-for-admin-access>
+   ```
+
+**Sign-In Flow:**
+
+1. Navigate to `/sign-in`
+2. Enter your email
+3. Click the magic link sent to your email
+4. You'll be redirected to `/dashboard`
+
+**Roles:**
+
+- **Admin**: Email matching `ADMIN_EMAIL` gets admin role
+- **User**: All other emails get regular user role
+
+**Protected Routes:**
+
+Routes requiring authentication (redirect to /sign-in if not logged in):
+
+- `/dashboard` - Main dashboard
+- `/restaurants` - Restaurant management (future)
+- `/friends` - Friend management (future)
+- `/visits` - Visit logging (future)
+- `/todo` - ToDo Eat List (future)
+
+**Session Management:**
+
+- Sessions stored in database (Vercel Postgres)
+- 30-day expiration
+- Access session in Server Components: `const session = await auth()`
+- Access session in Client Components: `const { data: session } = useSession()`
+
 ## Available Scripts
 
 - `pnpm dev` - Start development server

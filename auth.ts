@@ -6,6 +6,11 @@ import { sendMagicLinkEmail } from '@/lib/email/magic-link-template';
 import { eq } from 'drizzle-orm';
 import { users } from '@/lib/db/schema';
 
+// Validate required environment variables
+if (!process.env.RESEND_API_KEY) {
+  throw new Error('RESEND_API_KEY environment variable is required');
+}
+
 // Extend NextAuth types to include role
 declare module 'next-auth' {
   interface Session {
@@ -45,7 +50,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async signIn({ user }) {
       // Auto-create user with role if doesn't exist
       if (!user.role && user.id) {
-        const isAdmin = user.email === process.env.ADMIN_EMAIL;
+        const isAdmin = user.email?.toLowerCase() === process.env.ADMIN_EMAIL?.toLowerCase();
 
         // Update user with role
         await db
