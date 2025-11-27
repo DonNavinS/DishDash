@@ -28,7 +28,8 @@ export default function SignInPage() {
         setLoading(false);
       } else {
         // Redirect to verify page
-        window.location.href = '/sign-in/verify?email=' + encodeURIComponent(email);
+        window.location.href =
+          '/sign-in/verify?email=' + encodeURIComponent(email);
       }
     } catch (err) {
       setError('Something went wrong. Please try again.');
@@ -37,7 +38,7 @@ export default function SignInPage() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+    <div className="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
       <div className="mb-6 text-center">
         <h1 className="text-2xl font-bold text-gray-900">
           🍽️ Welcome to DishDash
@@ -63,7 +64,7 @@ export default function SignInPage() {
         </div>
 
         {error && (
-          <div className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-md p-3">
+          <div className="rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
@@ -73,7 +74,7 @@ export default function SignInPage() {
         </Button>
       </form>
 
-      <p className="mt-4 text-xs text-center text-gray-500">
+      <p className="mt-4 text-center text-xs text-gray-500">
         We'll email you a magic link for a password-free sign in.
       </p>
     </div>

@@ -5,10 +5,8 @@ export default async function DashboardPage() {
 
   return (
     <div>
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Welcome back!
-        </h2>
+      <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">Welcome back!</h2>
         <div className="space-y-2">
           <p className="text-gray-600">
             <strong>Email:</strong> {session?.user?.email}
@@ -25,12 +23,13 @@ export default async function DashboardPage() {
         </div>
       </div>
 
-      <div className="mt-6 bg-orange-50 border border-orange-200 rounded-lg p-6">
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+      <div className="mt-6 rounded-lg border border-orange-200 bg-orange-50 p-6">
+        <h3 className="mb-2 text-lg font-semibold text-gray-900">
           🎉 Authentication Working!
         </h3>
         <p className="text-sm text-gray-700">
-          NextAuth v5 is successfully configured. You're seeing this page because you're authenticated.
+          NextAuth v5 is successfully configured. You're seeing this page
+          because you're authenticated.
         </p>
       </div>
     </div>

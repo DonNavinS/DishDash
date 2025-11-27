@@ -14,20 +14,18 @@ export default async function DashboardLayout({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
+      <nav className="border-b border-gray-200 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 justify-between">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold text-gray-900">
-                🍽️ DishDash
-              </h1>
+              <h1 className="text-xl font-bold text-gray-900">🍽️ DishDash</h1>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600">
                 {session.user?.email}
               </span>
               {session.user?.role === 'admin' && (
-                <span className="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded-full font-medium">
+                <span className="rounded-full bg-orange-100 px-2 py-1 text-xs font-medium text-orange-800">
                   Admin
                 </span>
               )}
@@ -43,7 +41,7 @@ export default async function DashboardLayout({
           </div>
         </div>
       </nav>
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {children}
       </main>
     </div>

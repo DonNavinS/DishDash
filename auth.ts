@@ -50,14 +50,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     async signIn({ user }) {
       // Auto-create user with role if doesn't exist
       if (!user.role && user.id) {
-        const isAdmin = user.email?.toLowerCase() === process.env.ADMIN_EMAIL?.toLowerCase();
+        const isAdmin =
+          user.email?.toLowerCase() === process.env.ADMIN_EMAIL?.toLowerCase();
 
         // Update user with role
         await db
           .update(users)
           .set({
             role: isAdmin ? 'admin' : 'user',
-            updatedAt: new Date()
+            updatedAt: new Date(),
           })
           .where(eq(users.id, user.id as string));
       }

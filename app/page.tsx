@@ -6,12 +6,10 @@ export default async function Home() {
   const session = await auth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 to-white flex items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-orange-50 to-white px-4">
       <div className="max-w-2xl text-center">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">
-          🍽️ DishDash
-        </h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <h1 className="mb-4 text-5xl font-bold text-gray-900">🍽️ DishDash</h1>
+        <p className="mb-8 text-xl text-gray-600">
           Track, plan, and share your restaurant adventures
         </p>
 
@@ -21,7 +19,7 @@ export default async function Home() {
               <p className="text-gray-700">
                 Welcome back, <strong>{session.user?.email}</strong>!
               </p>
-              <div className="flex gap-4 justify-center">
+              <div className="flex justify-center gap-4">
                 <Button asChild size="lg">
                   <Link href="/dashboard">Go to Dashboard</Link>
                 </Button>
@@ -37,24 +35,24 @@ export default async function Home() {
           )}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-          <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-            <div className="text-2xl mb-2">📝</div>
-            <h3 className="font-semibold text-gray-900 mb-2">ToDo Eat List</h3>
+        <div className="mt-12 grid grid-cols-1 gap-6 text-left md:grid-cols-3">
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="mb-2 text-2xl">📝</div>
+            <h3 className="mb-2 font-semibold text-gray-900">ToDo Eat List</h3>
             <p className="text-sm text-gray-600">
               Save restaurants you want to try and track your progress
             </p>
           </div>
-          <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-            <div className="text-2xl mb-2">🎉</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Log Visits</h3>
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="mb-2 text-2xl">🎉</div>
+            <h3 className="mb-2 font-semibold text-gray-900">Log Visits</h3>
             <p className="text-sm text-gray-600">
               Record your dining experiences with friends
             </p>
           </div>
-          <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-            <div className="text-2xl mb-2">📊</div>
-            <h3 className="font-semibold text-gray-900 mb-2">Track Stats</h3>
+          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+            <div className="mb-2 text-2xl">📊</div>
+            <h3 className="mb-2 font-semibold text-gray-900">Track Stats</h3>
             <p className="text-sm text-gray-600">
               See trends in your cuisine preferences and spending
             </p>
