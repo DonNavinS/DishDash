@@ -37,7 +37,7 @@ function VerifyContent() {
         <div className="rounded-md border border-gray-200 bg-gray-50 p-4 text-sm text-gray-700">
           <p className="mb-2">Click the link in the email to sign in.</p>
           <p className="text-xs text-gray-500">
-            The link expires in 24 hours. If you don't see the email, check your
+            The link expires in 24 hours. If you don&apos;t see the email, check your
             spam folder.
           </p>
         </div>

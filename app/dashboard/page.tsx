@@ -28,8 +28,8 @@ export default async function DashboardPage() {
           🎉 Authentication Working!
         </h3>
         <p className="text-sm text-gray-700">
-          NextAuth v5 is successfully configured. You're seeing this page
-          because you're authenticated.
+          NextAuth v5 is successfully configured. You&apos;re seeing this page
+          because you&apos;re authenticated.
         </p>
       </div>
     </div>

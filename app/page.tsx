@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { auth } from '@/auth';
+import { auth, signOut } from '@/auth';
 import { Button } from '@/components/ui/button';
 
 export default async function Home() {
@@ -23,9 +23,16 @@ export default async function Home() {
                 <Button asChild size="lg">
                   <Link href="/dashboard">Go to Dashboard</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <a href="/api/auth/signout">Sign Out</a>
-                </Button>
+                <form
+                  action={async () => {
+                    'use server';
+                    await signOut();
+                  }}
+                >
+                  <Button variant="outline" size="lg" type="submit">
+                    Sign Out
+                  </Button>
+                </form>
               </div>
             </div>
           ) : (

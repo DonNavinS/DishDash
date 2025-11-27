@@ -4,6 +4,7 @@ interface EmailParams {
   identifier: string;
   url: string;
   provider: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     server?: any;
     from?: string;
   };
