@@ -63,7 +63,9 @@
       "Bash(pnpm db:studio:*)",
       "Bash(npx tsx verify-tables.ts)",
       "Bash(pnpm db:seed:*)",
-      "Bash(timeout /t 10 /nobreak)"
+      "Bash(timeout /t 10 /nobreak)",
+      "Bash(node -r dotenv/config node_modules/.bin/drizzle-kit push:*)",
+      "Bash(export POSTGRES_URL=\"postgresql://neondb_owner:npg_Kchx7IaSzkF0@ep-red-cloud-ahhcg33w-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require\")"
     ],
     "deny": [],
     "ask": []

@@ -8,6 +8,13 @@
       "when": 1763945085760,
       "tag": "0000_known_living_lightning",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1764211068784,
+      "tag": "0001_fast_grim_reaper",
+      "breakpoints": true
     }
   ]
 }
